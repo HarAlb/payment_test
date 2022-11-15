@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Services\Payment\PaymentController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** @var $router Illuminate\Routing\Router */
+$router->any('/confirm_url', [\App\Services\Payment\PaymentController::class, 'confirm']);
